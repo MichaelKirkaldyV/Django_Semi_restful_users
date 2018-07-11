@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show</title>
+	{% load static %}
+</head>
+<body>
+	<h1>User {{Users.id}}</h1>
+	<h3>First Name: {{Users.first_name}}</h3>
+	<h3>Last Name: {{Users.last_name}}</h3>
+	<h3>email: {{Users.email}}</h3>
+	<a href="/users/{{Users.id}}/edit">Edit</a>
+	<a href="users/{{Users.id}}/delete">Delete</a>
+</body>
+</html>

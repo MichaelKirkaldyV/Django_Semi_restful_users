@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users</title>
+	{% load static %}
+</head>
+<body>
+	<h1>USERS</h1>
+	<table>
+		<!--1st row displays titles, other rows display values !-->
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Full Name</th>
+				<th>Email</th>
+				<th>Created At</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		{% for user in users %}
+		<tbody>
+			<tr>
+				<td>{{user.id}}</td>
+				<td>{{user.first_name}}{{user.last_name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.created_at}}</td>
+				<td><a href="users/{{Users.id}}/show">Show</a> | <a href="users/{{Users.id}}/edit">Edit</a> | <a href="users/{{Users.id}}/delete">Delete</a></td>
+			</tr>
+		</tbody>
+		{% endfor %}
+	</table>
+	<a href="/users/new">Add a new user</a>
+
+</body>
+</html>

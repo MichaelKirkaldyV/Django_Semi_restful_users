@@ -23,12 +23,12 @@ def create(request):
 			messages.error(request, error, extra_tags=tag)
 			return redirect('/users/new')
 	else:
-		Users.objects.create(first_name="first_name", last_name="last_name", email="email")
+		Users.objects.create(first_name=first_name, last_name=last_name, email=email)
 		return redirect('/users')
 
 
-def show(request):
-	return render(request, 'restful/show.html')
+def show(request, id):
+	return render(request, 'restful/show.html', {"users": Users.objects.get(id=id)})
 
 def update(request):
 	#grabs the id from the update form and uses the following queries to update and save the info.
@@ -40,8 +40,8 @@ def update(request):
 
 	return redirect('/users')
 
-def delete(request):
-	return render(request, 'restful/delete.html')
+def edit(request, id):
+	return render(request, 'restful/edit.html', {"users": Users.objects.get(id=id)})
 
 def destroy(request, id):
 	a = Users.objects.get(id=id)

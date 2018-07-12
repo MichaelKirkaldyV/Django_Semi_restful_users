@@ -7,9 +7,12 @@
 </head>
 <body>
 	<div id="container">
-		<h1>Add a new user!</h1>
-		<form action="/users/edit" method="POST">
+		<h1>Edit a new user!</h1>
+		<h2>User {{users.id}}</h2>
+		<form action="/users/update" method="POST">
 			{% csrf_token %}
+			<!-- takes a hidden input of the users.id so that the client won't have the option of entering another users id and changing anything!-->
+			<input type="hidden" name="id" value="{{ users.id }}">
 			<label><h3>First Name:</h3></label>
 			<input type="text" name="first_name">
 			<label><h3>Last Name:</h3></label>
